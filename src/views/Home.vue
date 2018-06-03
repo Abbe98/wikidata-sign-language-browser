@@ -1,18 +1,32 @@
 <template>
   <div class="home">
-    <img src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Spinner v-if="!languages" size="huge" message="Loading..."></Spinner>
+    <ul v-else>
+      <router-link v-for="language in languages.results.bindings" v-bind:key="language.langQ.value" tag="li" v-bind:to="'lang/' + language.langQ.value">
+        <a>{{ language.langLabel.value }} <span>{{ language.count.value }}</span></a>
+      </router-link>
+    </ul>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import Spinner from 'vue-simple-spinner';
+import { RQ_LANGUAGES } from '../queries';
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
-    HelloWorld,
+    Spinner,
+  },
+  asyncComputed: {
+    languages: {
+      get() {
+        return this.$http
+          .get(`sparql?query=${RQ_LANGUAGES}`)
+          .then(response => response.body);
+      },
+      default: false,
+    },
   },
 };
 </script>
