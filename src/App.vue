@@ -6,7 +6,7 @@
 
 <style>
 body {
-    font: normal 12px/1.6667 "Helvetica Neue", Arial, sans-serif;
+    font: normal 16px "Helvetica Neue", Arial, sans-serif;
     color: #333;
     margin: 0;
     display: flex;

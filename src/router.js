@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
-import About from './views/About.vue';
+import Language from './views/Language.vue';
 
 Vue.use(Router);
 
@@ -14,8 +14,8 @@ export default new Router({
     },
     {
       path: '/lang/:id',
-      name: 'about',
-      component: About,
+      name: 'lang',
+      component: Language,
     },
   ],
 });
