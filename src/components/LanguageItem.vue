@@ -51,7 +51,7 @@ section {
     border-top: 1px solid rgba(255, 255, 255, .3);
     margin-top: 1.1rem;
     padding-top: 1.1rem;
-    display: flow-root;
+    overflow: auto;
 }
 
 section a {
