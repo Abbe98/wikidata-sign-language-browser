@@ -21,9 +21,9 @@ export default {
   asyncComputed: {
     items: {
       get() {
-        return this.$http
+        return this.$http.wdqs
           .get(`sparql?query=${RQLanguageItems(this.$route.params.id)}`)
-          .then(response => response.body);
+          .then(response => response.data);
       },
       default: false,
     },

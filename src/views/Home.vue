@@ -21,9 +21,9 @@ export default {
   asyncComputed: {
     languages: {
       get() {
-        return this.$http
+        return this.$http.wdqs
           .get(`sparql?query=${RQ_LANGUAGES}`)
-          .then(response => response.body);
+          .then(response => response.data);
       },
       default: false,
     },

@@ -1,16 +1,24 @@
 import Vue from 'vue';
 import AsyncComputed from 'vue-async-computed';
-import VueResource from 'vue-resource';
+import axios from 'axios';
+
 import App from './App.vue';
 import router from './router';
 import store from './store';
 import './registerServiceWorker';
 
 Vue.use(AsyncComputed);
-Vue.use(VueResource);
 
 Vue.config.productionTip = false;
-Vue.http.options.root = 'https://query.wikidata.org';
+
+Vue.prototype.$http = {};
+Vue.prototype.$http.wdqs = axios.create({
+  baseURL: 'https://query.wikidata.org',
+});
+
+Vue.prototype.$http.commons = axios.create({
+  baseURL: 'https://commons.wikimedia.org/w/api.php',
+});
 
 new Vue({
   router,
