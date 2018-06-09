@@ -11,5 +11,6 @@ body {
     margin: 0;
     width: 100%;
     background: #FF6666;
+    overflow-x: hidden;
 }
 </style>
