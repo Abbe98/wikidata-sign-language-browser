@@ -2,21 +2,31 @@
   <div class="home">
     <Spinner v-if="!languages" size="huge" message="Loading..."></Spinner>
     <ul v-else>
-      <router-link v-for="language in languages.results.bindings" v-bind:key="language.langQ.value" tag="li" v-bind:to="'lang/' + language.langQ.value">
-        <a>{{ language.langLabel.value }} <span>{{ language.count.value }}</span></a>
-      </router-link>
+      <LanguageItem v-for="language in languages.results.bindings" v-bind:key="language.langQ.value" v-bind:language="language"></LanguageItem>
     </ul>
   </div>
 </template>
 
 <script>
 import Spinner from 'vue-simple-spinner';
+import LanguageItem from '../components/LanguageItem';
 import { RQ_LANGUAGES } from '../queries';
 
 export default {
   name: 'Home',
   components: {
     Spinner,
+    LanguageItem,
+  },
+  data: function() {
+    return {
+      open: false,
+    };
+  },
+  methods: {
+    toggle: function() {
+      this.open = !this.open;
+    },
   },
   asyncComputed: {
     languages: {
@@ -30,3 +40,13 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+</style>
