@@ -1,6 +1,6 @@
 <template>
   <li>
-    <span role="link" v-bind:aria-expanded="open" v-on:click="toggle()">
+    <span role="link" v-bind:aria-expanded="open.toString()" v-on:click="toggle()">
       {{ item.itemLabel.value }} <small v-if="item.itemDescription">{{ item.itemDescription.value }}</small>
     </span>
     <section v-bind:class="{ active: open }">stuff</section>
