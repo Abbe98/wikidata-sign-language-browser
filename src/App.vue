@@ -7,13 +7,9 @@
 <style>
 body {
     font: normal 16px "Helvetica Neue", Arial, sans-serif;
-    color: #333;
+    color: #fff;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
     width: 100%;
+    background: #FF6666;
 }
 </style>
