@@ -1,13 +1,13 @@
 <template>
-      <li>
-        <span role="link" v-bind:aria-expanded="open.toString()" v-on:click="toggle()">
-          <a>{{ language.langLabel.value }} <span>{{ language.count.value }}</span></a>
-        </span>
-        <section v-bind:class="{ active: open }">
-          <router-link v-bind:to="'lang/' + language.langQ.value">Browse</router-link>
-          <router-link v-bind:to="'#'">Flashcards</router-link>
-        </section>
-      </li>
+  <li>
+    <span role="link" v-bind:aria-expanded="open.toString()" v-on:click="toggle()">
+      <a>{{ language.langLabel.value }} <span>{{ language.count.value }}</span></a>
+    </span>
+    <section v-bind:class="{ active: open }">
+      <router-link v-bind:to="'lang/' + language.langQ.value">Browse</router-link>
+      <router-link v-bind:to="'#'">Flashcards</router-link>
+    </section>
+  </li>
 </template>
 
 <script>
