@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Words<span>List of available words</span></h1>
+    <h1>{{ language }}<span>List of available words</span></h1>
     <Spinner v-if="!items" size="huge" message="Loading..." lineBgColor="#ff7873" textFgColor="#fff" lineFgColor="#fff"></Spinner>
     <ul v-else>
       <Item v-for="item in items.results.bindings" v-bind:item="item" v-bind:key="item.itemQ.value"/>
@@ -19,6 +19,11 @@ export default {
     Spinner,
     Item,
   },
+  data: function() {
+    return {
+      language: false,
+    };
+  },
   asyncComputed: {
     items: {
       get() {
@@ -28,6 +33,13 @@ export default {
       },
       default: false,
     },
+  },
+  mounted: function() {
+    this.$http.wikidata
+      .get(`w/api.php?action=wbsearchentities&search=${this.$route.params.id}&language=en&origin=*&format=json`)
+      .then(response => {
+        this.language = response.data.search[0].label;
+      });
   },
 };
 </script>

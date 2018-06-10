@@ -12,12 +12,17 @@ Vue.use(AsyncComputed);
 Vue.config.productionTip = false;
 
 Vue.prototype.$http = {};
+
 Vue.prototype.$http.wdqs = axios.create({
   baseURL: 'https://query.wikidata.org',
 });
 
 Vue.prototype.$http.commons = axios.create({
   baseURL: 'https://commons.wikimedia.org',
+});
+
+Vue.prototype.$http.wikidata = axios.create({
+  baseURL: 'https://www.wikidata.org',
 });
 
 new Vue({
