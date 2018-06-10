@@ -37,11 +37,12 @@ export default {
       default: false,
     },
   },
-  mounted: function() {
+  created: function() {
     this.$http.wikidata
       .get(`w/api.php?action=wbsearchentities&search=${this.$route.params.id}&language=en&origin=*&format=json`)
       .then(response => {
         this.language = response.data.search[0].label;
+        document.title = response.data.search[0].label;
       });
   },
 };
