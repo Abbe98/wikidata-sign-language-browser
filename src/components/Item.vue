@@ -1,12 +1,12 @@
 <template>
-  <li>
+  <li class="item">
     <span role="link" v-bind:aria-expanded="open.toString()" v-on:click="toggle()">
-      {{ item.itemLabel.value }} <small v-if="item.itemDescription">{{ item.itemDescription.value }}</small>
+      {{ item.itemLabel.value }} <br><small v-if="item.itemDescription">{{ item.itemDescription.value }}</small>
     </span>
-    <section v-bind:class="{ active: open }">
+    <section v-if="open">
       <video muted controls v-if="data" v-bind:poster="data.thumbnail.source" v-bind:src="data.original.source"></video>
-      <a v-if="data" v-bind:href="'https://commons.wikimedia.org/?curid=' + data.pageid">View License (Wikimedia Commons)</a>
-      <Spinner v-else message="Loading..."></Spinner>
+      <a class="btn" v-if="data" v-bind:href="'https://commons.wikimedia.org/?curid=' + data.pageid">View License (Wikimedia Commons)</a>
+      <Spinner v-else message="Loading..." lineBgColor="#ff7873" textFgColor="#fff" lineFgColor="#fff"></Spinner>
     </section>
   </li>
 </template>
@@ -38,7 +38,7 @@ export default {
 
     getData: function() {
       this.$http.commons
-        .get(`w/api.php?action=query&format=json&origin=*&prop=pageimages&titles=File:${this.item.fileName.value}&converttitles=1&piprop=thumbnail|name|original&pithumbsize=200`)
+        .get(`w/api.php?action=query&format=json&origin=*&prop=pageimages&titles=File:${this.item.fileName.value}&converttitles=1&piprop=thumbnail|name|original&pithumbsize=400`)
         .then(response => {
           const pages = response.data.query.pages;
           this.data = pages[Object.keys(pages)[0]];
@@ -49,11 +49,12 @@ export default {
 </script>
 
 <style scoped>
-section {
-  display: none;
+.btn {
+    margin-top: 1.1rem;
+    width: calc(100% - 5px);
 }
-/* #TODO no need for css use v-if instead */
-section.active {
-  display: block;
+
+video {
+    width: calc(100% - 2.2rem);
 }
 </style>

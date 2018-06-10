@@ -41,31 +41,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-div {
-    margin: 4rem auto;
-    padding: 2rem 3rem 3rem;
-    max-width: 500px;
-}
-
-h1 {
-    font-weight: normal;
-    font-size: 2.6rem;
-    letter-spacing: 0.05em;
-    border-bottom: 1px solid rgba(255, 255, 255, .3);
-}
-
-h1 span {
-    display: block;
-    font-size: 0.8rem;
-    margin-bottom: 0.7rem;
-    margin-left: 3px;
-    margin-top: 0.2rem;
-}
-
-ul {
-    padding: 0;
-    list-style: none;
-}
-</style>
