@@ -5,12 +5,14 @@
     <ul v-else>
       <LanguageItem v-for="language in languages.results.bindings" v-bind:key="language.langQ.value" v-bind:language="language"></LanguageItem>
     </ul>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Spinner from 'vue-simple-spinner';
 import LanguageItem from '../components/LanguageItem';
+import Footer from '../components/Footer';
 import { RQ_LANGUAGES } from '../queries';
 
 export default {
@@ -18,6 +20,7 @@ export default {
   components: {
     Spinner,
     LanguageItem,
+    Footer,
   },
   data: function() {
     return {

@@ -5,12 +5,14 @@
     <ul v-else>
       <Item v-for="item in items.results.bindings" v-bind:item="item" v-bind:key="item.itemQ.value"/>
     </ul>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Spinner from 'vue-simple-spinner';
 import Item from '../components/Item';
+import Footer from '../components/Footer';
 import { RQLanguageItems } from '../queries';
 
 export default {
@@ -18,6 +20,7 @@ export default {
   components: {
     Spinner,
     Item,
+    Footer,
   },
   data: function() {
     return {

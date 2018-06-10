@@ -1,0 +1,24 @@
+<template>
+  <footer>
+      <a href="https://www.wikidata.org/wiki/Wikidata:Main_Page">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Wikidata_Stamp_Rec_Light.svg" alt="This application is powered by Wikidata." />
+      </a>
+  </footer>
+</template>
+
+<script>
+export default {
+  name: 'Footer',
+};
+</script>
+
+<style scoped>
+footer {
+    text-align: center;
+    margin-top: 1.8rem;
+}
+
+img {
+    max-width: calc(100% - 12rem);
+}
+</style>
