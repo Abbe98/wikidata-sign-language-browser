@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { EventBus } from '../event-bus.js';
+
 export default {
   name: 'LanguageItem',
   data: function() {
@@ -23,8 +25,14 @@ export default {
   },
   methods: {
     toggle: function() {
+      EventBus.$emit('LanguageItemToggle', this.language.langQ.value);
       this.open = !this.open;
     },
+  },
+  mounted: function() {
+    EventBus.$on('LanguageItemToggle', toggledQ => {
+      if (toggledQ !== this.language.langQ.value) this.open = false;
+    });
   },
 };
 </script>
