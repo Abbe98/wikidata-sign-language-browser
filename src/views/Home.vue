@@ -42,5 +42,8 @@ export default {
       default: false,
     },
   },
+  created: function() {
+    document.title = 'Sign Language Browser';
+  },
 };
 </script>
