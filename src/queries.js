@@ -9,7 +9,11 @@ GROUP BY ?langLabel ?lang
 ORDER BY DESC(?count)`);
 
 export function RQLanguageItems(language) {
-  return encodeURI(`SELECT (REPLACE(STR(?item), "http://www.wikidata.org/entity/", "") as ?itemQ) ?itemLabel ?file ?itemDescription
+  return encodeURI(`SELECT (REPLACE(STR(?item), "http://www.wikidata.org/entity/", "") as ?itemQ)
+  ?itemLabel
+  (REPLACE(STR(?file), "http://commons.wikimedia.org/wiki/Special:FilePath/", "") as ?fileName)
+  ?itemDescription
+
   WHERE {
     ?item wdt:P2919 ?file .
     ?item p:P2919 ?statement .

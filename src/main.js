@@ -17,7 +17,7 @@ Vue.prototype.$http.wdqs = axios.create({
 });
 
 Vue.prototype.$http.commons = axios.create({
-  baseURL: 'https://commons.wikimedia.org/w/api.php',
+  baseURL: 'https://commons.wikimedia.org',
 });
 
 new Vue({
