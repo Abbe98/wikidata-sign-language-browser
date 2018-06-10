@@ -13,6 +13,7 @@
 
 <script>
 import Spinner from 'vue-simple-spinner';
+import { EventBus } from '../event-bus.js';
 
 export default {
   name: 'Item',
@@ -34,6 +35,7 @@ export default {
         this.getData();
       }
       this.open = !this.open;
+      EventBus.$emit('ItemToggle', this.item.itemQ.value);
     },
 
     getData: function() {
@@ -44,6 +46,11 @@ export default {
           this.data = pages[Object.keys(pages)[0]];
         });
     },
+  },
+  mounted: function() {
+    EventBus.$on('ItemToggle', toggledQ => {
+      if (toggledQ !== this.item.itemQ.value) this.open = false;
+    });
   },
 };
 </script>
