@@ -19,6 +19,6 @@ footer {
 }
 
 img {
-    max-width: calc(100% - 12rem);
+    max-width: 70%;
 }
 </style>
