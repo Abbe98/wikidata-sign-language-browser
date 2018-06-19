@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Flashcards<span>{{language}} flashcards</span></h1>
+    <h1>Flashcards<span>{{ language }} flashcards</span></h1>
   </div>
 </template>
 
