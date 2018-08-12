@@ -3,12 +3,15 @@
     <h1>Flashcards<span>{{ language }} flashcards</span></h1>
     <Spinner v-if="!items" size="huge" message="Loading..." lineBgColor="#ff7873" textFgColor="#fff" lineFgColor="#fff"></Spinner>
     <div v-else class="card" v-bind:class="{ flipped: isFlipped }">
+
       <div class="front" v-show="!flippingIsDone">
         <video v-if="activePage && isVideo(activePage.original.source)" muted="muted" controls="controls" v-bind:poster="activePage.thumbnail.source" v-bind:src="activePage.original.source"></video>
         <img v-else-if="activePage" :src="activePage.original.source" />
-        <a class="btn" v-bind:href="'https://commons.wikimedia.org/?curid=' + activePage.pageid">View License (Wikimedia Commons)</a>
-        <button class="btn flip" v-on:click="flip">Flip</button>
+        <a v-if="activePage" class="btn" v-bind:href="'https://commons.wikimedia.org/?curid=' + activePage.pageid">View License (Wikimedia Commons)</a>
+        <button v-if="activePage" class="btn flip" v-on:click="flip">Flip</button>
+        <Spinner v-else message="Loading..." lineBgColor="#ff7873" textFgColor="#fff" lineFgColor="#fff"></Spinner>
       </div>
+
       <div class="back">
         <h2 v-if="activeItem">{{ activeItem.itemLabel.value }}<small>{{ activeItem.itemDescription.value }}</small></h2>
         <button class="btn flip" v-on:click="flip">Flip</button>
@@ -104,7 +107,7 @@ export default {
     max-height: 60vh;
 }
 
-.card div {
+.card > div {
     display: block;
     position: absolute;
     width: 100%;
