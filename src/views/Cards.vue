@@ -92,6 +92,7 @@ export default {
     transition: transform 1s;
     transform-origin: right center;
     border: 1px solid rgba(255, 255, 255, .3);
+    max-height: 60vh;
 }
 
 .card div {

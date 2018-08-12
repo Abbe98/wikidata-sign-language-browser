@@ -43,6 +43,6 @@ a span {
 }
 
 .btn {
-    width: calc(50% - 5px - 2px);
+    width: calc(50% - 12px);
 }
 </style>

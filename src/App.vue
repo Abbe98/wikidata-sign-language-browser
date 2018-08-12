@@ -18,6 +18,7 @@ body {
     margin: 4rem auto;
     padding: 2rem 3rem 3rem;
     max-width: 500px;
+    overflow-y: hidden;
 }
 
 h1 {
@@ -78,5 +79,11 @@ ul {
 .btn:hover {
     background: #FF6666;
     transition: background .5s ease;
+}
+
+@media (max-height: 700px) {
+    #app {
+        margin: 0rem auto;
+    }
 }
 </style>
