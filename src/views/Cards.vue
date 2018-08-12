@@ -4,7 +4,8 @@
     <Spinner v-if="!items" size="huge" message="Loading..." lineBgColor="#ff7873" textFgColor="#fff" lineFgColor="#fff"></Spinner>
     <div v-else class="card" v-bind:class="{ flipped: isFlipped }">
       <div class="front" v-show="!flippingIsDone">
-        <video v-if="activePage" muted="muted" controls="controls" v-bind:poster="activePage.thumbnail.source" v-bind:src="activePage.original.source"></video>
+        <video v-if="activePage && isVideo(activePage.original.source)" muted="muted" controls="controls" v-bind:poster="activePage.thumbnail.source" v-bind:src="activePage.original.source"></video>
+        <img v-else-if="activePage" :src="activePage.original.source" />
         <a class="btn" v-bind:href="'https://commons.wikimedia.org/?curid=' + activePage.pageid">View License (Wikimedia Commons)</a>
         <button class="btn flip" v-on:click="flip">Flip</button>
       </div>
@@ -21,6 +22,7 @@
 import Spinner from 'vue-simple-spinner';
 import Footer from '../components/Footer';
 import { RQLanguageItems } from '../queries';
+import { isVideo } from '../helpers';
 
 export default {
   name: 'Cards',
@@ -43,7 +45,6 @@ export default {
       .then(response => {
         this.language = response.data.search[0].label;
         document.title = this.language + ' Flashcards';
-        this.setRandomItem();
       });
   },
   asyncComputed: {
@@ -56,7 +57,14 @@ export default {
       default: false,
     },
   },
+  watch: {
+    items: function(val) {
+      if (val) this.setRandomItem();
+     },
+  },
   methods: {
+    isVideo: isVideo,
+
     flip: function() {
       this.isFlipped = !this.isFlipped;
       this.flippingIsDone = false;
@@ -109,6 +117,10 @@ export default {
 
 .card .back {
     transform: rotateX(180deg);
+}
+
+.card .front {
+    text-align: center;
 }
 
 .card.flipped {

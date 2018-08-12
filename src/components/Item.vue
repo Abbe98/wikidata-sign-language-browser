@@ -4,7 +4,8 @@
       {{ item.itemLabel.value }} <br><small v-if="item.itemDescription">{{ item.itemDescription.value }}</small>
     </span>
     <section v-if="open">
-      <video muted controls v-if="data" v-bind:poster="data.thumbnail.source" v-bind:src="data.original.source"></video>
+      <video muted controls v-if="data && isVideo(data.original.source)" v-bind:poster="data.thumbnail.source" v-bind:src="data.original.source"></video>
+      <img v-else-if="data" :src="data.original.source" />
       <a class="btn" v-if="data" v-bind:href="'https://commons.wikimedia.org/?curid=' + data.pageid">View License (Wikimedia Commons)</a>
       <Spinner v-else message="Loading..." lineBgColor="#ff7873" textFgColor="#fff" lineFgColor="#fff"></Spinner>
     </section>
@@ -14,6 +15,7 @@
 <script>
 import Spinner from 'vue-simple-spinner';
 import { EventBus } from '../event-bus.js';
+import { isVideo } from '../helpers';
 
 export default {
   name: 'Item',
@@ -30,6 +32,8 @@ export default {
     item: Object,
   },
   methods: {
+    isVideo: isVideo,
+
     toggle: function() {
       if (!this.data) {
         this.getData();
@@ -61,7 +65,8 @@ export default {
     width: calc(100% - 5px);
 }
 
-video {
+video,
+img {
     width: calc(100% - 2.2rem);
 }
 </style>
