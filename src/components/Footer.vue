@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style module>
 footer {
     text-align: center;
     margin-top: 1.8rem;

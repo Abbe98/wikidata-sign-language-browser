@@ -69,7 +69,10 @@ ul {
     margin: 0 2.5px;
     float: left;
     text-decoration: none;
+    background: none;
+    cursor: pointer;
     transition: background .5s ease;
+    font: normal 16px "Helvetica Neue", Arial, sans-serif;
 }
 
 .btn:hover {

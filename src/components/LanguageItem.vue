@@ -5,7 +5,7 @@
     </span>
     <section v-if="open">
       <router-link class="btn" v-bind:to="'lang/' + language.langQ.value">Browse</router-link>
-      <router-link class="btn" v-bind:to="'#'">Flashcards</router-link>
+      <router-link class="btn" v-bind:to="'lang/' + language.langQ.value + '/cards'">Flashcards</router-link>
     </section>
   </li>
 </template>
