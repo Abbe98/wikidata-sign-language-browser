@@ -13,6 +13,7 @@
         <button class="btn flip" v-on:click="flip">Flip</button>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
