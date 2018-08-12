@@ -1,0 +1,8 @@
+{
+  "name": "Wikidata Sign Language Browser",
+  "short_name": "Sign Language Browser",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#FF6666",
+  "theme_color": "#FF6666"
+}
