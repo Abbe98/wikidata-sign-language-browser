@@ -13,7 +13,7 @@
       </div>
 
       <div class="back">
-        <h2 v-if="activeItem">{{ activeItem.itemLabel.value }}<small>{{ activeItem.itemDescription.value }}</small></h2>
+        <h2 v-if="activeItem && isFlipped">{{ activeItem.itemLabel.value }}<small>{{ activeItem.itemDescription.value }}</small></h2>
         <button class="btn flip" v-on:click="flip">Flip</button>
       </div>
     </div>
