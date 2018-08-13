@@ -42,6 +42,11 @@ a span {
     float: right;
 }
 
+a {
+  display: inline-block;
+  width: 100%;
+}
+
 .btn {
     width: calc(50% - 12px);
 }

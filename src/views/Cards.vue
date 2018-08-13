@@ -63,7 +63,7 @@ export default {
   watch: {
     items: function(val) {
       if (val) this.setRandomItem();
-     },
+    },
   },
   methods: {
     isVideo: isVideo,

@@ -18,7 +18,7 @@ body {
     margin: 4rem auto;
     padding: 2rem 3rem 3rem;
     max-width: 500px;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 h1 {
@@ -50,8 +50,10 @@ ul {
 .item span[role=link] {
     width: 100%;
     margin: 0 -200% 4px;
-    padding: 1.1rem 200%;
+    padding: 0 200%;
     cursor: pointer;
+    width: 100%;
+    display: inline-block;
 }
 
 .item section {
