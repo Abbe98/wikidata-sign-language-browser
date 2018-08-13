@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/sign-language-browser/js/chunk-vendors.4a7381c8.js"
   },
   {
-    "revision": "ddc11d91f1502c7c4d54",
-    "url": "/sign-language-browser/js/app.ddc11d91.js"
+    "revision": "4218449df1997a403f28",
+    "url": "/sign-language-browser/js/app.4218449d.js"
   },
   {
-    "revision": "fe05091db736b976e7e9d281c56f1394",
+    "revision": "481933de22fe9e5a4ba684b3a511fab0",
     "url": "/sign-language-browser/index.html"
   },
   {
-    "revision": "ddc11d91f1502c7c4d54",
+    "revision": "4218449df1997a403f28",
     "url": "/sign-language-browser/css/app.dd2e83a2.css"
   }
 ];
