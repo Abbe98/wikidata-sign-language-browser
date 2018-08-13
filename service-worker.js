@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.6f4d9aff40023acfda4a513f3dc579e8.js"
+  "/sign-language-browser/precache-manifest.9ad1dab85c9d98d42a1dae7ddfe3e9d7.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "sign-language-browser"});
